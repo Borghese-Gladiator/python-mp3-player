@@ -1,9 +1,8 @@
 
 import os  # it permits to interact with the operating system
 from tkinter.filedialog import askdirectory  # it permit to select dir
-import tkinter as tkr  # used to develop GUI
+from tkinter import Tk, Label, Button, Listbox, ACTIVE, SINGLE, StringVar # used to develop GUI
 import pygame  # used to create video games
-from tkinter import Tk, Label, Button, Listbox, ACTIVE
 
 class MusicPlayer:
     def __init__(self, master):
@@ -11,8 +10,8 @@ class MusicPlayer:
         master.title("Life In Music")
         master.geometry("350x700")
 
-        self.var = tkr.StringVar() 
-        self.song_title = tkr.Label(master, font="Helvetica 12 bold", textvariable=self.var)
+        self.var = StringVar() 
+        self.song_title = Label(master, font="Helvetica 12 bold", textvariable=self.var)
         self.song_title.pack()
 
         self.Button1 = Button(master, width=17, height=3, font="Helvetica 12 bold", text="PLAY", command=self.play, bg="blue", fg="white")
@@ -32,7 +31,7 @@ class MusicPlayer:
         song_list = os.listdir()  # it returns the list of files song
 
         self.play_list = Listbox(
-            master, font="Helvetica 12 bold", bg="yellow", selectmode=tkr.SINGLE)
+            master, font="Helvetica 12 bold", bg="yellow", selectmode=SINGLE)
         for item in song_list:
             self.play_list.insert('end', item)
         self.play_list.pack(fill="both", expand="yes")
