@@ -1,1 +1,5 @@
+# virtual env
 /env/
+
+# setup.py creates build folder 
+/build/
